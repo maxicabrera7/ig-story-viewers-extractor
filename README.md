@@ -20,6 +20,10 @@ Scripts de extracción DOM para auditoría y exportación de audiencias y config
 - **Target:** Cuentas bloqueadas (`/accounts/blocked_accounts/`).
 - Anclaje estructural sobre Meta Bloks Web asociando botones "Desbloquear" y extracción de handles adyacentes.
 
+### 5. `extractor_seguidos.js` (Cuentas Seguidas)
+- **Target:** Modal de seguidos en perfil propio (`/{usuario}/following/`).
+- Bypass de lazy-loading por lotes de 24 elementos mediante micro-rebotes de scroll y despacho de eventos sintéticos para evitar cortes tempranos de red.
+
 ## Uso
 1. Abre la sección correspondiente en Instagram.
 2. Abre la consola de desarrollo (`F12` > Consola).
