@@ -1,30 +1,19 @@
-# Instagram Viewers & Privacy Extractor
+# Instagram Viewers & Privacy Extractor Suite
 
-Scripts de extracción DOM para auditoría y exportación de audiencias y configuraciones en Instagram Web (Firefox/Chromium).
+Suite de extractores de DOM y tráfico de red para auditoría técnica de audiencias y privacidad en Instagram Web (Firefox/Chromium).
 
-## Scripts disponibles
+## Módulos disponibles
 
-### 1. `extractor.js` (Espectadores de Historias)
-- **Target:** Modal de visualizaciones en historias activas (`/stories/...`).
-- Resuelve virtualización de React mediante scroll incremental y reset a `scrollTop: 0`.
-
-### 2. `extractor_ocultos.js` (Historias Ocultas)
-- **Target:** Ajustes de privacidad (`/accounts/privacy_and_security/` > Ocultar historia).
-- Resuelve paginadores de lote masivo y filtra handles mediante análisis tipográfico seminegrita.
-
-### 3. `extractor_restringidos.js` (Cuentas Restringidas)
-- **Target:** Ajustes de privacidad (`/accounts/privacy_and_security/` > Cuentas restringidas).
-- Anclaje estructural sobre contenedores de Meta Bloks Web vinculando botones "Quitar restricción" y avatares.
-
-### 4. `extractor_bloqueados.js` (Cuentas Bloqueadas)
-- **Target:** Cuentas bloqueadas (`/accounts/blocked_accounts/`).
-- Anclaje estructural sobre Meta Bloks Web asociando botones "Desbloquear" y extracción de handles adyacentes.
-
-### 5. `extractor_seguidos.js` (Cuentas Seguidas)
-- **Target:** Modal de seguidos en perfil propio (`/{usuario}/following/`).
-- Bypass de lazy-loading por lotes de 24 elementos mediante micro-rebotes de scroll y despacho de eventos sintéticos para evitar cortes tempranos de red.
+| Archivo | Vista Objetivo | Mecánica de Extracción | Mitigación Técnica |
+| :--- | :--- | :--- | :--- |
+| `extractor.js` | Visualizaciones de Historias (`/stories/...`) | DOM Scraping reactivo | Scroll incremental y reseteo a `scrollTop: 0` |
+| `extractor_ocultos.js` | Ajustes de Privacidad (`/accounts/privacy_and_security/`) | DOM Scraping tipográfico | Auto-click sobre paginadores y filtrado por peso seminegrita |
+| `extractor_restringidos.js` | Cuentas Restringidas (Meta Bloks) | Anclaje estructural | Cruce de botones de acción y avatares |
+| `extractor_bloqueados.js` | Cuentas Bloqueadas (Meta Bloks) | Anclaje estructural | Extracción adyacente a botones de desbloqueo |
+| `extractor_seguidos.js` | Cuentas Seguidas (`/{usuario}/following/`) | DOM Scraping asistido | Paginación por micro-rebotes y despacho de eventos sintéticos |
+| `extractor_seguidores.js` | Lista de Seguidores (`/{usuario}/followers/`) | Intercepción de red XHR | Espera pasiva de apertura, auto-scroll reactivo y deduplicación por PK |
 
 ## Uso
-1. Abre la sección correspondiente en Instagram.
+1. Navega a la sección correspondiente de Instagram Web.
 2. Abre la consola de desarrollo (`F12` > Consola).
-3. Pega el script respectivo y presiona Enter.
+3. Pega el script correspondiente y presiona Enter.
