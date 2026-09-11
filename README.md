@@ -1,14 +1,18 @@
-# Instagram Story Viewers Extractor
+# Instagram Viewers & Privacy Extractor
 
-Script de extracción DOM ligero para exportar listas completas de espectadores de historias de Instagram en la versión web (Firefox/Chromium).
+Scripts de extracción DOM para auditoría y exportación de audiencias en Instagram Web (Firefox/Chromium).
 
-## Características
-- Superación de virtualización y lazy-loading sin peticiones manuales a endpoints GraphQL.
-- Auto-apertura de modal y rebobinado de scroll a posición cero.
-- Interfaz inyectada (*glassmorphism*) con recuento dinámico y microinteracciones.
-- Exportación directa vía portapapeles o archivo `.txt`.
+## Scripts disponibles
+
+### 1. `extractor.js` (Espectadores de Historias)
+- **Target:** Modal de visualizaciones en historias activas (`/stories/...`).
+- Resuelve virtualización de nodos de React mediante scroll descendente progresivo y reset a `scrollTop: 0`.
+
+### 2. `extractor_ocultos.js` (Historias Ocultas)
+- **Target:** Ajustes de privacidad (`/accounts/privacy_and_security/`).
+- Ejecuta auto-click sobre paginadores de lote masivo y filtra handles mediante análisis tipográfico seminegrita y descarte espacial del sidebar.
 
 ## Uso
-1. Abre tu historia en Instagram Web.
-2. Abre la consola de desarrollador (`F12` > Consola).
-3. Pega el contenido de `extractor.js` y presiona Enter.
+1. Abre la sección correspondiente en Instagram.
+2. Abre la consola de desarrollo (`F12` > Consola).
+3. Pega el script respectivo y presiona Enter.
