@@ -6,17 +6,21 @@ Scripts de extracción DOM para auditoría y exportación de audiencias y config
 
 ### 1. `extractor.js` (Espectadores de Historias)
 - **Target:** Modal de visualizaciones en historias activas (`/stories/...`).
-- Supera virtualización de React mediante scroll incremental y rebobinado inicial.
+- Resuelve virtualización de React mediante scroll incremental y reset a `scrollTop: 0`.
 
 ### 2. `extractor_ocultos.js` (Historias Ocultas)
 - **Target:** Ajustes de privacidad (`/accounts/privacy_and_security/` > Ocultar historia).
-- Resuelve paginadores de lote masivo y filtra handles mediante análisis tipográfico.
+- Resuelve paginadores de lote masivo y filtra handles mediante análisis tipográfico seminegrita.
 
 ### 3. `extractor_restringidos.js` (Cuentas Restringidas)
 - **Target:** Ajustes de privacidad (`/accounts/privacy_and_security/` > Cuentas restringidas).
-- Anclaje estructural sobre contenedores de Meta Bloks Web vinculando botones de acción y avatares.
+- Anclaje estructural sobre contenedores de Meta Bloks Web vinculando botones "Quitar restricción" y avatares.
+
+### 4. `extractor_bloqueados.js` (Cuentas Bloqueadas)
+- **Target:** Cuentas bloqueadas (`/accounts/blocked_accounts/`).
+- Anclaje estructural sobre Meta Bloks Web asociando botones "Desbloquear" y extracción de handles adyacentes.
 
 ## Uso
 1. Abre la sección correspondiente en Instagram.
 2. Abre la consola de desarrollo (`F12` > Consola).
-3. Pega el contenido del script correspondiente y presiona Enter.
+3. Pega el script respectivo y presiona Enter.
